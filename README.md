@@ -1,1 +1,1 @@
-# 3rd-sc-1team_VitaVelly-BE
+# 3rd-sc-1team_VitaBelly-BE
