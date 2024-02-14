@@ -14,6 +14,7 @@ import java.util.List;
 public class viewInfoController {
 
     private final viewInfoService viewInfoService;
+    private final medicineUpdateService medicineUpdateService;
 
     @GetMapping("examInfo")
     public List<examInfoDto> getAllexamInfo(){
@@ -22,7 +23,7 @@ public class viewInfoController {
 
     @GetMapping("examInfo/{examId}")
     public examInfoDto getExamInfo(
-            @PathVariable("examID") int id
+            @PathVariable("examId") int id
     ){
         return viewInfoService.getExamInfo(id);
     }
@@ -44,6 +45,12 @@ public class viewInfoController {
     @GetMapping("selfImpInfo")
     public List<selfImpInfoDto> getAllselfImpInfo(){
         return viewInfoService.getAllselfImpInfo();
+    }
+
+    @GetMapping("updateMedicine")
+    public void usingApi(
+    ){
+        medicineUpdateService.updateMedicineInfo();
     }
 
 
