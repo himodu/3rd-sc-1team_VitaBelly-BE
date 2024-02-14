@@ -1,6 +1,6 @@
-package com.example.solutionchallengebackend.service;
+package GDSCKNU.VitaBelly.service;
 
-import com.example.solutionchallengebackend.model.Maid;
+import GDSCKNU.VitaBelly.model.Maid;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -8,8 +8,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Service;
 import java.util.concurrent.CompletableFuture;
+import org.springframework.stereotype.Service;
 
 @Service
 public class MaidService {
