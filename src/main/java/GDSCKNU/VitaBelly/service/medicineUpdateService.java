@@ -40,8 +40,6 @@ public class medicineUpdateService {
                 .baseUrl(baseURL)
                 .build();
 
-        System.out.println("https://api.odcloud.kr/api/15067466/v1/uddi:c741e770-ac42-419f-9b4f-d6e0cb3d63ae?page=" + pageStr +"&perPage="+perPageStr+"&serviceKey="+apiKey);
-
         // Body elements
         try {
             String mediInfoStr = webClient.get()
@@ -50,7 +48,6 @@ public class medicineUpdateService {
                     .bodyToMono(String.class)
                     .block();
             JSONObject mediInfos = new JSONObject(mediInfoStr);
-            System.out.println(mediInfos);
 
             JSONArray data = mediInfos.getJSONArray("data");
 
