@@ -1,10 +1,9 @@
-
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://
-    username:
-    password:
+    url: jdbc:mysql://aws-free-data.cvkmnqgpbmdr.ap-northeast-2.rds.amazonaws.com:3306/vitabelly
+    username: root
+    password: da7879!!!
 
   jpa:
     hibernate:
