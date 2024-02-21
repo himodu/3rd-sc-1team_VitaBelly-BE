@@ -1,13 +1,10 @@
 package GDSCKNU.VitaBelly.service;
 
 import GDSCKNU.VitaBelly.model.Maid;
+
+import GDSCKNU.VitaBelly.repository.*;
 import GDSCKNU.VitaBelly.entity.*;
-import GDSCKNU.VitaBelly.repository.maidInfoRepository;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -81,32 +78,4 @@ public class MaidService {
 
         return maid;
     }
-
-//    public CompletableFuture<Void> updateMaid(String maidId, Maid maid) {
-//        CompletableFuture<Void> result = new CompletableFuture<>();
-//
-//        databaseReference.child(maidId).setValue(maid, (databaseError, databaseReference) -> {
-//            if (databaseError != null) {
-//                result.completeExceptionally(databaseError.toException());
-//            } else {
-//                result.complete(null);
-//            }
-//        });
-//
-//        return result;
-//    }
-//
-//    public CompletableFuture<Void> deleteMaid(String maidId) {
-//        CompletableFuture<Void> result = new CompletableFuture<>();
-//
-//        databaseReference.child(maidId).removeValue((databaseError, databaseReference) -> {
-//            if (databaseError != null) {
-//                result.completeExceptionally(databaseError.toException());
-//            } else {
-//                result.complete(null);
-//            }
-//        });
-//
-//        return result;
-//    }
 }

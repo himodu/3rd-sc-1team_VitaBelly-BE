@@ -27,6 +27,8 @@ public class medicineUpdateService {
     }
     public void getMedicineInfo(int page) {
 
+
+        //약물 이미지는 임의의 5개를 랜덤으로 부여
         List<String> imgLinkList = new ArrayList<>();
 
         imgLinkList.add("https://firebasestorage.googleapis.com/v0/b/image-ef7d2.appspot.com/o/12594a39a8ab48a508b290c51f18b4c1.png?alt=media");
@@ -35,23 +37,20 @@ public class medicineUpdateService {
         imgLinkList.add("https://firebasestorage.googleapis.com/v0/b/image-ef7d2.appspot.com/o/e4ff664030332958916cbc9736ed331e.png?alt=media");
         imgLinkList.add("https://firebasestorage.googleapis.com/v0/b/image-ef7d2.appspot.com/o/fce9fdaa7e0967f6ab040321e6faa34b.png?alt=media");
 
-        int randVal;
+      int randVal;
 
         DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory("https://api.odcloud.kr");
         factory.setEncodingMode(DefaultUriBuilderFactory.EncodingMode.VALUES_ONLY);
 
         String baseURL = "https://api.odcloud.kr";
-        String basePath = "/api/15067466/v1/uddi:c741e770-ac42-419f-9b4f-d6e0cb3d63ae?";
         String apiKey = "rk4TRNlsd5PWdUjdkgQg19%2BU8zwJsIMFSvZGHdRjfPx9rR813K9Y2FHRTB8H5%2BjKDeyDUWkMc9AJA2LATV%2Be3Q%3D%3D";
         String pageStr = String.valueOf(page);
         String perPageStr = String.valueOf(100);
-        // WebClient URL, firebase로 API요청을 보내기 위해서.
+
         WebClient webClient = WebClient.builder()
                 .uriBuilderFactory(factory)
                 .baseUrl(baseURL)
                 .build();
-
-        // Body elements
         try {
             String mediInfoStr = webClient.get()
                     .uri("https://api.odcloud.kr/api/15067466/v1/uddi:c741e770-ac42-419f-9b4f-d6e0cb3d63ae?page=" + pageStr +"&perPage="+perPageStr+"&serviceKey="+apiKey)
@@ -62,10 +61,11 @@ public class medicineUpdateService {
 
             JSONArray data = mediInfos.getJSONArray("data");
 
-
             for(int i=0; i<10; i++){
                 JSONObject medi = data.getJSONObject(i);
-                randVal = (int)(Math.random() * 5);
+
+                randVal = (int)(Math.random()*5);
+
                 medicineInfo medicine = medicineInfo.builder()
                         .grade(medi.getInt("금기등급"))
                         .medicineName(medi.getString("제품명"))

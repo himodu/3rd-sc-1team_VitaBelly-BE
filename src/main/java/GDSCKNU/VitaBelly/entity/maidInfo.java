@@ -36,6 +36,4 @@ public class maidInfo {
     @ElementCollection
     @CollectionTable(name="services", joinColumns =  @JoinColumn(name="maidInfoId", referencedColumnName = "id"))
     private List<String> services= new ArrayList<>();
-
-
 }

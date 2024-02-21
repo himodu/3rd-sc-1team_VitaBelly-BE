@@ -1,10 +1,9 @@
 package GDSCKNU.VitaBelly.controller;
 
-import GDSCKNU.VitaBelly.config.CityName;
+import GDSCKNU.VitaBelly.util.CityName;
 import GDSCKNU.VitaBelly.model.Clinic;
 import GDSCKNU.VitaBelly.service.ClinicService;
 import io.swagger.v3.oas.annotations.Operation;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

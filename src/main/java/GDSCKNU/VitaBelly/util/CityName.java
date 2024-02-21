@@ -1,4 +1,4 @@
-package GDSCKNU.VitaBelly.config;
+package GDSCKNU.VitaBelly.util;
 
 import lombok.Getter;
 

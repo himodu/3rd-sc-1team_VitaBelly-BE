@@ -43,21 +43,4 @@ public class MaidController {
     ) {
         return ResponseEntity.ok(maidService.getMaid(id));
     }
-
-//    @PutMapping("/{maidId}")
-//    @Operation(summary = "가사도우미 게시글 수정", description = "가사도우미 게시글을 수정합니다.")
-//    public ResponseEntity<Void> updateMaid(
-//            @PathVariable String maidId,
-//            @RequestBody Maid maid
-//    ) {
-//
-//    }
-//
-//    @DeleteMapping("/{maidId}")
-//    @Operation(summary = "가사도우미 게시글 삭제", description = "가사도우미 게시글을 삭제합니다.")
-//    public ResponseEntity<Void> deleteMaid(
-//            @PathVariable String maidId
-//    ) {
-//
-//    }
 }
