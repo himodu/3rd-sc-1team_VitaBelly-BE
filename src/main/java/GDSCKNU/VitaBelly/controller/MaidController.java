@@ -31,34 +31,22 @@ public class MaidController {
 
     @PostMapping
     @Operation(summary = "가사도우미 게시글 작성", description = "가사도우미 게시글을 작성합니다.")
-    public CompletableFuture<ResponseEntity<String>> addMaid(@RequestBody Maid maid) {
-        return maidService.addMaid(maid)
-            .thenApply(maidId -> ResponseEntity.ok().body("Maid added with ID: " + maidId))
-            .exceptionally(error -> ResponseEntity.badRequest().body("Error: " + error.getMessage()));
+    public ResponseEntity<String> addMaid(@RequestBody Maid maid) {
+        maidService.addMaid(maid);
+        return ResponseEntity.ok("sucess");
     }
 
     @GetMapping
     @Operation(summary = "가사도우미 게시글 불러오기", description = "가사도우미 정보를 모두 불러옵니다.")
-    public CompletableFuture<ResponseEntity<List<Maid>>> getAllMaids() {
-        return maidService.getAllMaids()
-            .thenApply(maids -> ResponseEntity.ok().body(maids))
-            .exceptionally(error -> ResponseEntity.badRequest().body(null));
+    public ResponseEntity<List<Maid>> getAllMaids() {
+        return ResponseEntity.ok(maidService.getAllMaids());
     }
 
-    @PutMapping("/{maidId}")
-    @Operation(summary = "가사도우미 게시글 수정", description = "가사도우미 게시글을 수정합니다.")
-    public CompletableFuture<ResponseEntity<Void>> updateMaid(@PathVariable String maidId,
-        @RequestBody Maid maid) {
-        return maidService.updateMaid(maidId, maid)
-            .thenApply(aVoid -> ResponseEntity.ok().<Void>build())
-            .exceptionally(error -> ResponseEntity.badRequest().build());
-    }
-
-    @DeleteMapping("/{maidId}")
-    @Operation(summary = "가사도우미 게시글 삭제", description = "가사도우미 게시글을 삭제합니다.")
-    public CompletableFuture<ResponseEntity<Void>> deleteMaid(@PathVariable String maidId) {
-        return maidService.deleteMaid(maidId)
-            .thenApply(aVoid -> ResponseEntity.ok().<Void>build())
-            .exceptionally(error -> ResponseEntity.badRequest().build());
+    @GetMapping("/{maidinfoId}")
+    @Operation(summary = "가사도우미 게시글 불러오기", description = "가사도우미 정보를 모두 불러옵니다.")
+    public ResponseEntity<Maid> getMaid(
+            @PathVariable("maidinfoId")int id
+    ) {
+        return ResponseEntity.ok(maidService.getMaid(id));
     }
 }

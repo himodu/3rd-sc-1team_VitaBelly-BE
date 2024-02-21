@@ -1,4 +1,4 @@
-package GDSCKNU.VitaBelly.entity;
+package GDSCKNU.VitaBelly.auth;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,21 +11,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class examInfo {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "start")
-    private int startWeek;
-    @Column(name = "end")
-    private int endWeek;
-
-    @Column(name = "examType")
-    private String examType;
-
-    @Column(name = "explane")
-    private String explane;
-
+    private String username;
+    private String userEmail;
+    private String password;
 
 }

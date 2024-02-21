@@ -1,11 +1,15 @@
 package GDSCKNU.VitaBelly.model;
 
 import java.util.List;
+
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Maid {
-    private String id; // Firebase에서 생성된 고유 ID
+    private int id; // Firebase에서 생성된 고유 ID
     private String profileImageUrl;
     private String name;
     private String introduction; // 자기소개
@@ -13,6 +17,18 @@ public class Maid {
     private double ratings;
     private List<String> services; // 제공하는 서비스 종류
 
+    @Builder
+    public Maid(int id, String profileImageUrl, String name, String introduction, Location location, double ratings, List<String> services) {
+        this.id = id;
+        this.profileImageUrl = profileImageUrl;
+        this.name = name;
+        this.introduction = introduction;
+        this.location = location;
+        this.ratings = ratings;
+        this.services = services;
+    }
+
+    @Data
     public static class Location {
         private String city;
         private String district; // 구/군
@@ -20,6 +36,11 @@ public class Maid {
 
         public Location() {
 
+        }
+        public Location(String city, String district, String detail) {
+            this.city = city;
+            this.district = district;
+            this.detail = detail;
         }
     }
 }

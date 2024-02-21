@@ -68,9 +68,6 @@ public class viewInfoService {
         }else{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-
-
-
         List<medicineInfoDto> medicineInfoDtos = new ArrayList<>();
 
         for(medicineInfo e : medicineInfoList){
