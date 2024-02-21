@@ -27,14 +27,17 @@ public class medicineUpdateService {
     }
     public void getMedicineInfo(int page) {
 
+
         //약물 이미지는 임의의 5개를 랜덤으로 부여
         List<String> imgLinkList = new ArrayList<>();
+
         imgLinkList.add("https://firebasestorage.googleapis.com/v0/b/image-ef7d2.appspot.com/o/12594a39a8ab48a508b290c51f18b4c1.png?alt=media");
         imgLinkList.add("https://firebasestorage.googleapis.com/v0/b/image-ef7d2.appspot.com/o/1f637bb9b34310ddb251f326cc869842.png?alt=media");
         imgLinkList.add("https://firebasestorage.googleapis.com/v0/b/image-ef7d2.appspot.com/o/7adccd4ab256027f0861f040339eef51.png?alt=media");
         imgLinkList.add("https://firebasestorage.googleapis.com/v0/b/image-ef7d2.appspot.com/o/e4ff664030332958916cbc9736ed331e.png?alt=media");
         imgLinkList.add("https://firebasestorage.googleapis.com/v0/b/image-ef7d2.appspot.com/o/fce9fdaa7e0967f6ab040321e6faa34b.png?alt=media");
-        int randVal;
+
+      int randVal;
 
         DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory("https://api.odcloud.kr");
         factory.setEncodingMode(DefaultUriBuilderFactory.EncodingMode.VALUES_ONLY);
@@ -60,7 +63,9 @@ public class medicineUpdateService {
 
             for(int i=0; i<10; i++){
                 JSONObject medi = data.getJSONObject(i);
+
                 randVal = (int)(Math.random()*5);
+
                 medicineInfo medicine = medicineInfo.builder()
                         .grade(medi.getInt("금기등급"))
                         .medicineName(medi.getString("제품명"))

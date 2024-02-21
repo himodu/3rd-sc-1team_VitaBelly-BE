@@ -1,6 +1,7 @@
 package GDSCKNU.VitaBelly.service;
 
 import GDSCKNU.VitaBelly.model.Maid;
+
 import GDSCKNU.VitaBelly.repository.*;
 import GDSCKNU.VitaBelly.entity.*;
 
@@ -77,5 +78,4 @@ public class MaidService {
 
         return maid;
     }
-
 }
